@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.honc.cqrs.cqrsall.mapper.KeywordDoMapper" >
+  <resultMap id="BaseResultMap" type="com.honc.cqrs.cqrsall.dataobject.KeywordDo" >
+    <id column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="commend_status" property="commendStatus" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="search_number" property="searchNumber" jdbcType="INTEGER" />
+    <result column="approve_status" property="approveStatus" jdbcType="INTEGER" />
+    <result column="source_from" property="sourceFrom" jdbcType="INTEGER" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    keyword, commend_status, weight, search_number, approve_status, source_from, gmt_created, 
+    gmt_modified, creator, modifier
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from keyword
+    where keyword = #{keyword,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from keyword
+    where keyword = #{keyword,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.honc.cqrs.cqrsall.dataobject.KeywordDo" >
+    insert into keyword (keyword, commend_status, weight, 
+      search_number, approve_status, source_from, 
+      gmt_created, gmt_modified, creator, 
+      modifier)
+    values (#{keyword,jdbcType=VARCHAR}, #{commendStatus,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE}, 
+      #{searchNumber,jdbcType=INTEGER}, #{approveStatus,jdbcType=INTEGER}, #{sourceFrom,jdbcType=INTEGER}, 
+      #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{modifier,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.honc.cqrs.cqrsall.dataobject.KeywordDo" >
+    insert into keyword
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="keyword != null" >
+        keyword,
+      </if>
+      <if test="commendStatus != null" >
+        commend_status,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="searchNumber != null" >
+        search_number,
+      </if>
+      <if test="approveStatus != null" >
+        approve_status,
+      </if>
+      <if test="sourceFrom != null" >
+        source_from,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="keyword != null" >
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="commendStatus != null" >
+        #{commendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="searchNumber != null" >
+        #{searchNumber,jdbcType=INTEGER},
+      </if>
+      <if test="approveStatus != null" >
+        #{approveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sourceFrom != null" >
+        #{sourceFrom,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.honc.cqrs.cqrsall.dataobject.KeywordDo" >
+    update keyword
+    <set >
+      <if test="commendStatus != null" >
+        commend_status = #{commendStatus,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="searchNumber != null" >
+        search_number = #{searchNumber,jdbcType=INTEGER},
+      </if>
+      <if test="approveStatus != null" >
+        approve_status = #{approveStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sourceFrom != null" >
+        source_from = #{sourceFrom,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where keyword = #{keyword,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.honc.cqrs.cqrsall.dataobject.KeywordDo" >
+    update keyword
+    set commend_status = #{commendStatus,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=DOUBLE},
+      search_number = #{searchNumber,jdbcType=INTEGER},
+      approve_status = #{approveStatus,jdbcType=INTEGER},
+      source_from = #{sourceFrom,jdbcType=INTEGER},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=VARCHAR}
+    where keyword = #{keyword,jdbcType=VARCHAR}
+  </update>
+
+  <select id="searchKeywordByPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from keyword
+    <where>
+      <if test="search.keyword != null">
+        keyword LIKE CONCAT('%',#{search.keyword},'%')
+      </if>
+      <if test="search.commendStatus != null">
+        and  commend_status = #{search.commendStatus}
+      </if>
+      <if test="search.approveStatus != null">
+        and   approve_status = #{search.approveStatus}
+      </if>
+    </where>
+    order by ${search.orderBy} ${search.order}
+  </select>
+
+  <insert id="insertUserSearchKeyword" parameterType="com.honc.cqrs.cqrsall.dataobject.KeywordDo">
+        insert into keyword (keyword,gmt_created,gmt_modified,source_from) values (#{keywordDo.keyword},
+        #{keywordDo.gmtCreated},
+        #{keywordDo.gmtModified},
+        #{keywordDo.sourceFrom})
+        on DUPLICATE KEY UPDATE gmt_modified = #{keywordDo.gmtModified},search_number = search_number + 1
+
+    </insert>
+</mapper>

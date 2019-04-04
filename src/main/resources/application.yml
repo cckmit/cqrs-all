@@ -1,0 +1,37 @@
+
+server:
+  port: 8001
+
+#spring:
+#  datasource:
+#    master:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      jdbcurl: jdbc:mysql://172.17.104.22:3306/ysKeywordDB?useUnicode=true&characterEncoding=utf-8
+#      username: Yunshang_dev
+#      password: Yunshang@sql2018
+#      hikari:
+#        connection-test-query: SELECT 1
+#
+#    slave:
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://119.3.48.229:3306/ysKeywordDB?useUnicode=true&characterEncoding=utf-8
+#      username: root
+#      password: pwd123!
+queryjdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://172.17.104.22:3306/ysContentDB?useUnicode=true&characterEncoding=utf-8
+  username: Yunshang_dev
+  password: Yunshang@sql2018
+
+commandjdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://119.3.48.229:3306/yshang_keyword?useUnicode=true&characterEncoding=utf-8
+  username: root
+  password: pwd123!
+
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+
